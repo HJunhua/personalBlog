@@ -1,0 +1,82 @@
+##### 公共 配置 #######
+
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: dev
+
+  #thymeleaf配置
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+
+  #国际化
+  messages:
+    basename: i18n/messages
+
+  #mvc接收参数时对日期进行格式化
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+      date: dd-MM-
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.jh.entity
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+
+#评论名称头像
+comment.avatar: /images/avatar.png
+
+
+---
+##### dev 配置 #######
+spring:
+  profiles: dev
+  #数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 52HuJunhua1314
+
+#日志
+logging:
+  level:
+    root: info
+    com.lrm: debug
+  file:
+    name: log/blog-dev.log
+
+
+---
+##### prod 配置 #######
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+logging:
+  level:
+    root: warn
+    com.lrm: info
+  file:
+    name: log/blog-dev.log

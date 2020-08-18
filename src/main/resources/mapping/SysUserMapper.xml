@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="com.jh.mapper.SysUserMapper">
+    <resultMap id="BaseResultMap" type="com.jh.entity.SysUser">
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="avatar" column="avatar"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!--登录-->
+    <select id="login" resultMap="BaseResultMap">
+        select * from t_sysuser where username=#{username} and password=#{password}
+    </select>
+
+    <select id="findByLoginName" resultMap="BaseResultMap">
+        SELECT * FROM t_sysuser WHERE username=#{username}
+    </select>
+
+</mapper>
