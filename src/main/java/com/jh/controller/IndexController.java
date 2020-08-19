@@ -33,28 +33,28 @@ public class IndexController {
     @Autowired
     private TagService tagService;
 
-    @GetMapping("/")
+    @GetMapping(value = {"/","/index"})
     public String index(@RequestParam(value = "pageNum",required = false,defaultValue = "1") Integer pageNum, Model model) {
-        PageHelper.startPage(pageNum,6);
+        PageHelper.startPage(pageNum,5);
         //获取所有分类
         List<Type> types=typeService.getAllType();
         for (Type type:types){
             type.setBlogs(blogService.getBlogByTypeId(type.getId()));
         }
 
-        PageHelper.startPage(pageNum,6);
+        PageHelper.startPage(pageNum,5);
         //获取所有标签
         List<Tag> tags=tagService.getAllTag();
         for (Tag tag:tags){
             tag.setBlogs(blogService.getBlogByTagId(tag.getId()));
         }
 
-        PageHelper.startPage(pageNum,6);
+        PageHelper.startPage(pageNum,5);
         //前台获取博客
         List<Blog> blogs=blogService.getIndexBlog();
         PageInfo pageInfo=new PageInfo<>(blogs);
 
-        PageHelper.startPage(pageNum,6);
+        PageHelper.startPage(pageNum,5);
         //前台获取推荐博客
         List<Blog> recommendBlogs=blogService.getRecommendBlog();
 
@@ -69,7 +69,7 @@ public class IndexController {
     @PostMapping("/search")
     public String search(@RequestParam(value = "pageNum",defaultValue = "1",required = false) Integer pageNum,
                          @RequestParam String query, Model model) {
-        PageHelper.startPage(pageNum,6);
+        PageHelper.startPage(pageNum,5);
         List<Blog> blogs=blogService.searchIndexBlog(query);
         PageInfo pageInfo=new PageInfo<>(blogs);
 
@@ -87,7 +87,7 @@ public class IndexController {
 
     @GetMapping("/footer/newblog")
     public String newblogs(Model model) {
-        PageHelper.startPage(1,2);
+        PageHelper.startPage(1,5);
         //前台获取推荐博客
         List<Blog> recommendBlogs=blogService.getRecommendBlog();
         model.addAttribute("newblogs", recommendBlogs);

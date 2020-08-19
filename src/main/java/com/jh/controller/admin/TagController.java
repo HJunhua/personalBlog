@@ -23,7 +23,7 @@ public class TagController {
     //获取分页后的标签
     @GetMapping("/tags")
     public String tags(@RequestParam(value = "pageNum",defaultValue = "1",required = false) Integer pageNum, Model model) {
-        PageHelper.startPage(pageNum,2);
+        PageHelper.startPage(pageNum,5);
         List<Tag> tags=tagService.getAllTag();
         PageInfo pageInfo=new PageInfo<>(tags);
         model.addAttribute("pageInfo",pageInfo);

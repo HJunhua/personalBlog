@@ -23,7 +23,7 @@ public class TypeController {
     //获取分页后的分类
     @GetMapping("/types")
     public String types(@RequestParam(value = "pageNum",defaultValue = "1",required = false) Integer pageNum, Model model) {
-        PageHelper.startPage(pageNum,2);
+        PageHelper.startPage(pageNum,5);
         List<Type> types=typeService.getAllType();
         PageInfo pageInfo=new PageInfo<>(types);
         model.addAttribute("pageInfo",pageInfo);

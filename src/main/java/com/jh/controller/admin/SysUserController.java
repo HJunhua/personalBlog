@@ -43,19 +43,23 @@ public class SysUserController {
                         @RequestParam("password") String password,
                         HttpSession session,
                         RedirectAttributes attributes) {
-        System.out.println("6----用户登录----");
         SysUser sysUser = userService.login(username, password);
+        System.out.println(sysUser);
         if (sysUser != null) {
             //为了安全，session中不保存密码
             sysUser.setPassword(null);
             session.setAttribute("sysuser",sysUser);
-            return "admin/index";   // 返回后台首页
+            return "redirect:/admin/index";   // 返回后台首页
         } else {
             attributes.addFlashAttribute("message", "用户名或密码错误");
             return "redirect:/admin";
         }
     }
 
+    @GetMapping("/index")
+    public String index() {
+        return "admin/index";
+    }
 
     //用户退出登录
     @GetMapping("/logout")

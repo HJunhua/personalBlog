@@ -1,6 +1,6 @@
 package com.jh.service.impl;
 
-import com.jh.NotFoundException;
+import com.jh.exception.NotFoundException;
 import com.jh.entity.Blog;
 import com.jh.mapper.BlogMapper;
 import com.jh.service.BlogService;

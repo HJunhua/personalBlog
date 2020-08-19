@@ -28,14 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //认证
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        System.out.println("1----认证----");
         auth
                 //用户认证处理
                 .userDetailsService(userConfig)
                 //密码处理
                 .passwordEncoder(passwordEncoder);
-        System.out.println(userConfig);
-        System.out.println(passwordEncoder);
     }
 
 
@@ -43,7 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //授权
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("2----授权----");
         http
                 //关闭csrf防护
                 .csrf().disable()
@@ -51,17 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().disable().
                 and();
 
-        http.formLogin().loginPage("/admin/login.html").loginProcessingUrl("/admin/login");
-        /*http
-                //登录处理
+        http
                 .formLogin()
-                .loginProcessingUrl("/login")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                //未登录时默认跳转页面
+                // 登录页面
                 .loginPage("/admin/login")
+                .successForwardUrl("/admin/login")
+                .failureForwardUrl("/admin/login")
                 .permitAll()
-                .and();*/
+                .and();
 
         http
                 //登出处理
@@ -75,14 +68,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //定制url访问权限
                 .authorizeRequests()
                 //无须权限访问
-               /* .antMatchers("/","/**","/css/**","/images/**","/js/**").permitAll()*/
-                .antMatchers("/","/**","/css/**","/js/**","/images/**").permitAll()
+                .antMatchers("/","/*","/footer/newblog","/blog/*","/comments/*","/tags/*","/types/*","/admin/login","/css/**","/js/**","/images/**").permitAll()
                 //其他接口需要登录访问
                 .anyRequest().authenticated()
                 .and();
 
         http
-                //开启记住我
+                //开启记住我W
                 .rememberMe()
                 .tokenValiditySeconds(604800) //七天
                 /*.tokenRepository(persistentTokenRepository())

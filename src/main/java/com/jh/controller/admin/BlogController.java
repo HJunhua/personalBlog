@@ -41,7 +41,7 @@ public class BlogController {
         //获取分类列表
         model.addAttribute("types", typeService.getAllType());
         //获取博客列表
-        PageHelper.startPage(pageNum,2);
+        PageHelper.startPage(pageNum,5);
         List<Blog> blogs=blogService.getAllBlog();
         PageInfo pageInfo=new PageInfo<>(blogs);
         model.addAttribute("pageInfo",pageInfo);
@@ -72,7 +72,7 @@ public class BlogController {
     @PostMapping("/blogs")
     public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
         //设置用户编号
-        blog.setUserId(((SysUser) session.getAttribute("user")).getId());
+        blog.setUserId(((SysUser) session.getAttribute("sysuser")).getId());
 
         //设置分类编号
         blog.setType(typeService.getTypeById(blog.getType().getId()));
