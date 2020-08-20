@@ -46,7 +46,7 @@ public class CommentController {
         }
 
         //判断用户是否登录
-        SysUser user = (SysUser) session.getAttribute("user");
+        SysUser user = (SysUser) session.getAttribute("sysuser");
         if (user != null) {
             //登录，则用用户设置的头像
             comment.setAvatar(user.getAvatar());

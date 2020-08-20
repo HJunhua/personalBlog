@@ -6,6 +6,6 @@ import java.util.List;
 
 
 public interface CommentService {
-    public void saveComment(Comment comment);
-    public List<Comment> getCommentByBlogId(Long blogId);
+    void saveComment(Comment comment);
+    List<Comment> getCommentByBlogId(Long blogId);
 }

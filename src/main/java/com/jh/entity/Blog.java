@@ -1,17 +1,18 @@
 package com.jh.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author lize
- */
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Blog {
     /**编号*/
     private Long id;

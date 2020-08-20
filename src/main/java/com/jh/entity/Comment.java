@@ -1,16 +1,17 @@
 package com.jh.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author lize
- */
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Comment {
 
     /**编号*/
@@ -37,6 +38,7 @@ public class Comment {
 
     /**用于关联博客*/
     private Long blogId;
+
     /**父评论编号*/
     private Long parentCommentId;
 
@@ -49,6 +51,7 @@ public class Comment {
     /**级联关系*/
     private Blog blog;
 
+    /**子评论*/
     private List<Comment> childComments = new ArrayList<>();
 
 }

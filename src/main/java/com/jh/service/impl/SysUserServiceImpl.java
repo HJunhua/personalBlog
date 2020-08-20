@@ -4,7 +4,6 @@ import com.jh.entity.SysUser;
 import com.jh.mapper.SysUserMapper;
 import com.jh.service.SysUserService;
 import com.jh.util.MD5Util;
-import com.jh.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

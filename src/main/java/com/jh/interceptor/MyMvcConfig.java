@@ -5,9 +5,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 
-/**
- * @author lize
- */
+
 /*@Configuration*/
 public class MyMvcConfig {/*extends WebMvcConfigurerAdapter {
 

@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-/**
- * @author lize
- */
+
 @Controller
 public class IndexController {
 

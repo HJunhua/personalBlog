@@ -6,10 +6,10 @@ import java.util.List;
 
 
 public interface TypeService {
-    public List<Type> getAllType();
-    public Type getTypeById(Long id);
-    public Type getTypeByName(String name);
-    public void saveType(Type type);
-    public void updateType(Type type);
-    public void deleteType(Long id);
+    List<Type> getAllType();
+    Type getTypeById(Long id);
+    Type getTypeByName(String name);
+    void saveType(Type type);
+    void updateType(Type type);
+    void deleteType(Long id);
 }

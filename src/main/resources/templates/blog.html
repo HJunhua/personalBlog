@@ -461,7 +461,7 @@ h5,h6{font-size:1em;}
         <div class="ui middle aligned grid">
           <div class="eleven wide column">
             <ui class="list">
-              <li>作者：<span th:text="${blog.user.nickname}">李泽</span><a href="#" th:href="@{/about}" target="_blank">（联系作者）</a></li>
+              <li>作者：<span th:text="${blog.user.nickname}">胡俊华</span><a href="#" th:href="@{/about}" target="_blank">（联系作者）</a></li>
               <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2017-10-02 09:08</span></li>
               <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
               <li>公众号转载：请在文末添加作者公众号二维码</li>
@@ -603,8 +603,8 @@ h5,h6{font-size:1em;}
         <div class="three wide column">
           <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
           <div class="ui inverted link list">
-            <a href="#" class="item m-text-thin">Email：670551262@qq.com</a>
-            <a href="#" class="item m-text-thin">QQ：670551262</a>
+            <a href="#" class="item m-text-thin">Email：2283644684@qq.com</a>
+            <a href="#" class="item m-text-thin">QQ：2283644684</a>
           </div>
         </div>
         <div class="seven wide column">
@@ -720,11 +720,11 @@ h5,h6{font-size:1em;}
       }
     });
 
+
+
     $(function () {
       $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
     });
-
-
 
     $('#commentpost-btn').click(function () {
       var boo = $('.ui.form').form('validate form');

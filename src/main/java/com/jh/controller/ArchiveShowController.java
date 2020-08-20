@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-/**
- * @author lize
- */
+
 @Controller
 public class ArchiveShowController {
 
